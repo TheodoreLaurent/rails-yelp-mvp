@@ -1,0 +1,29 @@
+<h2>Show me dem restaurants</h2>
+
+
+<div class="text-center">
+<ul class = "unstyled">
+  <li> <%= @restaurant.name  %></li>
+  <li> <%= @restaurant.address %></li>
+  <li> <%= @restaurant.category %></li>
+  <li> <%= @restaurant.phone_number %></li>
+  <br>
+  <span>Reviews:</span>
+  <ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li> <%= review.content %></li>
+  <% end %>
+  </ul>
+  <br>
+  =====================
+
+<br>
+<%= link_to 'Edit restaurant', edit_restaurant_path(@restaurant) %>
+<br>
+<%= link_to "Back to restaurants list", restaurants_path %>
+<br>
+<%= link_to 'Delete restaurant', restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure bro?' } %>
+<br>
+<%= link_to 'add a review', new_restaurant_review_path(@restaurant) %>
+</ul>
+</div>
